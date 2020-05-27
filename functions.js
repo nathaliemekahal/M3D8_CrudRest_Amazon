@@ -1,5 +1,6 @@
 const url='https://striveschool.herokuapp.com/api/product/'
-
+let givenstring='user20:Y2cJZ38UPMmnPdAW'
+let encoded=window.btoa(givenstring)
 const getProducts=async()=>{
 
     let response = await fetch(url,{
@@ -46,7 +47,7 @@ const saveProduct= async (productObj)=>{
         body:JSON.stringify(productObj),
         headers: new Headers({
             'Content-Type':'application/json',
-            'Authorization':'Basic dXNlcjIwOlkyY0paMzhVUE1tblBkQVc='
+            'Authorization':'Basic '+encoded
         }),
     })
     return response
