@@ -34,11 +34,49 @@
       </div>
     </nav>
 
-    <div class="container mt-3" id='products-container'>
+    <div class=" mt-3" >
+      <div class="row justify-content-center" id='products-container'>
+
+      </div>
 
     </div>
 
     <!-- Optional JavaScript -->
+    <script>
+          window.onload=async()=>{
+      
+            let productsDiv=document.querySelector('#products-container')
+      
+            let products = await getProducts()
+            console.log(products)
+            let i=0
+            if(products.length>0){
+              products.forEach((productitem)=>{
+                    i++
+                    if(i>8){
+                    let product =document.createElement('div')
+                    product.innerHTML=`
+                    <div class="col mb-2">
+                    <div class="card" style="width: 18rem;">
+                              <img src="${productitem.imageUrl}" class="card-img-top" alt="...">
+                              <div class="card-body">
+                                <h5 class="card-title">${productitem.name}</h5>
+                                <p class="card-text">${productitem.description}</p>
+                                <p class="card-text">${productitem.brand}</p>
+                                <a onclick=deleteProduct(${productitem}) class="btn btn-primary">Delete item</a>
+                              </div>
+                            </div>
+                    </div>
+                            `
+                        productsDiv.appendChild(product)
+                  }
+                })
+         
+            }else{
+              productsDiv.innerHTML=`<h1>No planned events yet</h1>`
+            }
+        }
+    </script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src='functions.js'></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
