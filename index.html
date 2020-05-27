@@ -7,12 +7,13 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
     <title>Amazon CRUD</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Amazon</a>
+    <nav class="navbar navbar-expand-lg ">
+      <a class="navbar-brand" href="#"><img src="imgs/Logo.png" width="100px"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -53,16 +54,21 @@
             if(products.length>0){
               products.forEach((productitem)=>{
                     i++
-                    if(i>8){
+                    if(i>9){
                     let product =document.createElement('div')
                     product.innerHTML=`
-                    <div class="col mb-2">
-                    <div class="card" style="width: 18rem;">
+                    <div class="col  mb-2">
+                    <div class="card" >
                               <img src="${productitem.imageUrl}" class="card-img-top" alt="...">
-                              <div class="card-body">
-                                <h5 class="card-title">${productitem.name}</h5>
-                                <p class="card-text">${productitem.description}</p>
-                                <p class="card-text">${productitem.brand}</p>
+                              <div class="card-body ">
+                                <div class="text-center">
+                                <h5 class="card-title">${productitem.name}
+                                <span class="card-brand">${productitem.brand}</span></h5>
+                                <p class="card-text mb-0">${productitem.description}</p>
+                                <p class="card-price mb-0">${productitem.price}$</p>
+                              </div>
+                                <div class='shopping-cart '><i class="fas fa-cart-plus"></i><div>
+                                
                                 
                               </div>
                             </div>
