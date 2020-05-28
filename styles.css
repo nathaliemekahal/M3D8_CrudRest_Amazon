@@ -6,6 +6,8 @@
 background-color: #111;
 position: fixed;
 width: 100%;
+z-index: 20;
+top: 0;
 
 }
 .nav-link{
@@ -21,7 +23,7 @@ width: 100%;
     transition: transform 0.3s ease;
 }
 .cards-row.row{
-    margin: 0 70px;
+    margin: 0 70px !important;
     padding-top: 90px;
 }
 .card-body{
@@ -29,8 +31,8 @@ background-color: #F5F5F5;
 }
 .card-img-top{
     width: 100%;
-    height: 240px;
-    max-height: 240px;
+    height: 260px;
+    max-height: 300px;
     /* object-fit:cover; */
 }
 .card-title{

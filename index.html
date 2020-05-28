@@ -24,7 +24,7 @@
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="backoffice.html">Backoffice</a>
+            <a class="nav-link" href='backoffice.html'>Backoffice</a>
           </li>
           <li class="nav-item dropdown">
        
@@ -54,7 +54,7 @@
             if(products.length>0){
               products.forEach((productitem)=>{
                     i++
-                    if(i>9){
+                    // if(i>9){
                     let product =document.createElement('div')
                     product.className+='col  mb-2" '
                     product.innerHTML=`
@@ -76,7 +76,7 @@
                   
                             `
                         productsDiv.appendChild(product)
-                  }
+                  // }
                 })
          
             }else{

@@ -89,8 +89,18 @@
 
         const handleEdit=()=>{
             // console.log(id)
-            window.location.href="backoffice.html>productId="+id
+            window.location.href="backoffice.html?productId="+id
         }
+        const handleDelete = async () => {
+        // delete operation, I will need the id
+        const response = await deleteProduct(id);
+        if (response.ok) {
+          alert("Event deleted successfully");
+          window.location.assign("index.html");
+        } else {
+          alert("Event has NOT been deleted successfully");
+        }
+      };
     </script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="functions.js"></script>

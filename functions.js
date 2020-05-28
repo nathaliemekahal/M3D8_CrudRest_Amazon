@@ -2,13 +2,13 @@ const url='https://striveschool.herokuapp.com/api/product/'
 let givenstring='user20:Y2cJZ38UPMmnPdAW'
 let encoded=window.btoa(givenstring)
 const getProducts=async()=>{
-
+    
     let response = await fetch(url,{
         method:"GET",
         
         headers: new Headers({
             'Content-Type':'application/json',
-            'Authorization':'Basic dXNlcjIwOlkyY0paMzhVUE1tblBkQVc='
+            'Authorization':'Basic '+encoded
         }),
 
     })//this is getting response from api fetching 
@@ -41,16 +41,15 @@ submitProduct=async ()=>{
 
 
     }
-    console.log('myprod',myProduct)
-    let response=await saveProduct(myProduct)
-         console.log('repsonse from the save event' , response)
-         if(response.ok){
-             alert('event added successfully')
-             location.href='index.html'
-         }
-         else{
-             alert('Error')
-         }
+    let response;
+    if(id){
+        response=await editProduct(id,myProduct)
+    }
+    else{
+        response=await saveProduct(myProduct)
+    }
+    console.log("RESPONSE FROM THE saveEvent", response);
+   
    
 }
 
@@ -65,12 +64,25 @@ const saveProduct= async (productObj)=>{
     })
     return response
 }
-const editProduct=async (id)=>{
+const editProduct=async (id,productObj)=>{
     let response=await fetch(url+id,{
-        method:"Get",
+        method:"PUT",
+        body:JSON.stringify(productObj),
         headers: new Headers({
             'Content-Type':'application/json',
             'Authorization':'Basic '+encoded
         })
     })
+    return response
 }
+const deleteProduct = async (id) => {
+    let response = await fetch(url + id, {
+      method: "DELETE",
+      headers: new Headers({
+        'Content-Type':'application/json',
+        'Authorization':'Basic '+encoded
+    })
+    });
+    return response;
+  };
+  
