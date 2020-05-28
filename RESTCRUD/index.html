@@ -52,8 +52,8 @@
             if(events.length>0){
                 events.forEach((e)=>{
                     let event =document.createElement('div')
-                    event.innerHTML=`<span>${e.time}:${e.name}
-                        </span>`
+                    event.innerHTML=`<a href="details.html?eventId=${e._id}">${e.time}:${e.name}
+                        </a>`
                         eventsDiv.appendChild(event)
                 })
          

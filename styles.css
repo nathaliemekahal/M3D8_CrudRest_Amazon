@@ -17,8 +17,9 @@ background-color: #111;
 background-color: #edf3f3;
 }
 .card-img-top{
-    width: 330px;
-    height: 280px;
+    width: 100%;
+    height: 240px;
+    max-height: 240px;
     /* object-fit:cover; */
 }
 .card-title{
