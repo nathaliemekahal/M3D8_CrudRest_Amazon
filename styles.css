@@ -1,5 +1,12 @@
+.row{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
 .navbar{
 background-color: #111;
+position: fixed;
+width: 100%;
+
 }
 .nav-link{
     color: white;
@@ -13,8 +20,12 @@ background-color: #111;
     transform: scale(1);
     transition: transform 0.3s ease;
 }
+.cards-row.row{
+    margin: 0 70px;
+    padding-top: 90px;
+}
 .card-body{
-background-color: #edf3f3;
+background-color: #F5F5F5;
 }
 .card-img-top{
     width: 100%;
@@ -49,5 +60,24 @@ font-weight: 600;
 .card:hover{
     /* transform: translateX(-50px); */
     transform: scale(1.04);
-    
     }
+.display-product-details h1{
+    padding-top: 60px;
+}
+.button-row.row{
+    margin: 0 230px !important;
+}
+.btn.btn-delete{
+    background-color: #ff9900 ;
+    color: white;
+    font-size: larger;
+    font-weight: bolder;
+    border: none;
+}
+.btn.btn-edit{
+    background-color: #111 ;
+    color: white;
+    font-size: larger;
+    font-weight: bolder;
+    border: none;
+}

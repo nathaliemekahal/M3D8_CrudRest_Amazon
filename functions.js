@@ -14,6 +14,19 @@ const getProducts=async()=>{
     })//this is getting response from api fetching 
     return await response.json()//this is returning the result of thr promise in a usable format
 }
+const getProduct=async(id)=>{
+    let response = await fetch(url+id,{
+        method:"GET",
+        
+        headers: new Headers({
+            'Content-Type':'application/json',
+            'Authorization':'Basic dXNlcjIwOlkyY0paMzhVUE1tblBkQVc='
+        }),
+
+    })//this is getting response from api fetching 
+    return await response.json()
+
+}
 handleSubmit=()=>{
     event.preventDefault()
          submitProduct()
@@ -52,4 +65,12 @@ const saveProduct= async (productObj)=>{
     })
     return response
 }
-
+const editProduct=async (id)=>{
+    let response=await fetch(url+id,{
+        method:"Get",
+        headers: new Headers({
+            'Content-Type':'application/json',
+            'Authorization':'Basic '+encoded
+        })
+    })
+}
