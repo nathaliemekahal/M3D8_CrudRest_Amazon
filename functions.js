@@ -44,9 +44,17 @@ submitProduct=async ()=>{
     let response;
     if(id){
         response=await editProduct(id,myProduct)
+        if (response.ok) {
+            alert("Event Edited successfully");
+            window.location.assign("index.html");
+          }
     }
     else{
         response=await saveProduct(myProduct)
+        if (response.ok) {
+            alert("Event Added successfully");
+            window.location.assign("index.html");
+          }
     }
     console.log("RESPONSE FROM THE saveEvent", response);
    

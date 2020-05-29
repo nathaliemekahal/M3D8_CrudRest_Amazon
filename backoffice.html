@@ -44,24 +44,24 @@
         "price": 100, //REQUIRED -->
           <div class="form-group">
             <label for="name">Product Name</label>
-            <input class="form-control" type="text" id="name" placeholder="Enter Product Name">
+            <input class="form-control" type="text" id="name" placeholder="Enter Product Name" required>
 
           </div>
           <div class="form-group">
             <label for="description">Product description</label>
-            <input class="form-control" type="text" id="description" placeholder="Enter Product description">     
+            <input class="form-control" type="text" id="description" placeholder="Enter Product description" required>     
           </div>
           <div class="form-group">
             <label for="brand">Product Brand</label>
-            <input class="form-control" type="text" id="brand" placeholder="Enter Product Brand">     
+            <input class="form-control" type="text" id="brand" placeholder="Enter Product Brand" required>     
           </div>
           <div class="form-group">
             <label for="imageUrl">Product Image-URL</label>
-            <input class="form-control" type="url" id="imageUrl" placeholder="Enter Product Image-url">     
+            <input class="form-control" type="url" id="imageUrl" placeholder="Enter Product Image-url" required>     
           </div>
           <div class="form-group">
             <label for="price">Product Price</label>
-            <input class="form-control" type="number" id="price" placeholder="Enter Product Price">     
+            <input class="form-control" type="number" id="price" placeholder="Enter Product Price" required>     
           </div>
           <div class="form-group">
             <button class="btn btn-dark mt-3" id='submit-btn' type="submit">
@@ -80,7 +80,7 @@
         
         let urlParams = new URLSearchParams(window.location.search);
         id = urlParams.get("productId");
-        
+        try{
         if(id){ 
         let product_details= await getProduct(id)
         document.querySelector('#name').value=`${product_details.name}`
@@ -95,6 +95,11 @@
         console.log("I WANT TO CREATE AN ELEMENT FROM SCRATCH");
       }
       }
+      catch(err){
+      console.log("err", err);
+          alert(err);
+    }
+    }
      
       
     </script>

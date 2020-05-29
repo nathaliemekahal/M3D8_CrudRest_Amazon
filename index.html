@@ -36,7 +36,7 @@
     </nav>
 
     <div class=" mt-3" >
-      <div class="row  cards-row row-cols-xm-1 row-cols-md-2 row-cols-lg-4 justify-content-center" id='products-container'>
+      <div class="row  cards-row row-cols-xm-1 row-cols-md-2 row-cols-lg-4 " id='products-container'>
 
       </div>
 
@@ -47,9 +47,8 @@
           window.onload=async()=>{
       
             let productsDiv=document.querySelector('#products-container')
-      
+            try {
             let products = await getProducts()
-            console.log(products)
             let i=0
             if(products.length>0){
               products.forEach((productitem)=>{
@@ -59,16 +58,20 @@
                     product.className+='col  mb-2" '
                     product.innerHTML=`
                     
-                    <div class="card" onclick=window.location.href="details.html?productId=${productitem._id}" >
+                    <div class="card mb-4" onclick=window.location.href="details.html?productId=${productitem._id}" >
                               <img src="${productitem.imageUrl}" class="card-img-top" alt="...">
                               <div class="card-body ">
                                 <div class="text-center">
                                 <h5 class="card-title">${productitem.name}
                                 <span class="card-brand">${productitem.brand}</span></h5>
                                 <p class="card-text mb-0">${productitem.description}</p>
+                                
+                                  
                                 <p class="card-price mb-0">${productitem.price}$</p>
+                               
                               </div>
-                                <div class='shopping-cart '><i class="fas fa-cart-plus"></i><div>
+                              <div class='shopping-cart '><i class="fas fa-cart-plus"></i><div>
+                                
                                 
                                 
                               </div>
@@ -82,6 +85,10 @@
             }else{
               productsDiv.innerHTML=`<h1>No planned events yet</h1>`
             }
+          }catch(err){
+            console.log("err", err);
+            alert(err);
+          }
         }
     </script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
